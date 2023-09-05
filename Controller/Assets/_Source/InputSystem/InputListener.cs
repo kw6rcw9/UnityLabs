@@ -9,7 +9,8 @@ namespace InputSystem
         [SerializeField] private KeyCode jumpKey;
         [SerializeField] private Player player;
         private PlayerInvoker _playerInvoker;
-        private bool _inputEnabled;
+        private bool _inputEnabled = true;
+        private bool _isOnGround = true;
 
         private void Awake()
         {
@@ -26,9 +27,19 @@ namespace InputSystem
         
         }
 
+        private void OnTriggerEnter(Collider other)
+        {
+            _isOnGround = true;
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            _isOnGround = false;
+        }
+
         private void ReadJump()
         {
-            if (Input.GetKeyDown(jumpKey) && _inputEnabled)
+            if (Input.GetKeyDown(jumpKey) && _inputEnabled && _isOnGround)
             {
                 _playerInvoker.Jump();
                 
@@ -37,6 +48,9 @@ namespace InputSystem
 
         private void ReadRotate()
         {
+            if(_inputEnabled)
+                _playerInvoker.Rotate();
+            
             
         }
 
@@ -65,7 +79,8 @@ namespace InputSystem
 
         private void ReadMove()
         {
-            _playerInvoker.Move();
+            if(_inputEnabled)
+                _playerInvoker.Move();
             
             
 

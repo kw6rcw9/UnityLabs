@@ -23,5 +23,10 @@ namespace PlayerSystem
             _playerMovement.Jump(_player.Rb, _player.JumpForce);
             
         }
+
+        public void Rotate()
+        {
+            _playerMovement.Rotate(_player.Rb, _player.RotationSpeed,_player.transform);
+        }
     }
 }
