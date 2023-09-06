@@ -4,11 +4,10 @@ namespace PlayerSystem
 {
     public class PlayerMovement
     {
-        public void Move(Rigidbody rb, float speed)
+        public void Move(float x, float z, Rigidbody rb, float speed)
         {
 
-             float x = Input.GetAxis("Horizontal");
-             float z = Input.GetAxis("Vertical");
+             
             rb.velocity = new Vector3(x * speed, rb.velocity.y, z * speed);
         }
 
@@ -17,10 +16,9 @@ namespace PlayerSystem
             rb.AddForce(Vector3.up * force);
         }
 
-        public void Rotate(Rigidbody rb, float speed, Transform transform)
+        public void Rotate(float x, float z, Rigidbody rb, float speed, Transform transform)
         {
-            float x = Input.GetAxis("Horizontal");
-            float z = Input.GetAxis("Vertical");
+            
             Vector3 rotationInput = new Vector3(x * speed,
                 0, z * speed);
             if (rotationInput.magnitude > 0.1f)

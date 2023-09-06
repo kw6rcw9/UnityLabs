@@ -14,9 +14,9 @@ namespace PlayerSystem
             _playerCombat = new PlayerCombat();
         }
 
-        public void Move()
+        public void Move(float x, float z)
         {
-            _playerMovement.Move(_player.Rb, _player.MovementSpeed);
+            _playerMovement.Move(x, z, _player.Rb, _player.MovementSpeed);
         }
 
         public void Jump()
@@ -24,14 +24,14 @@ namespace PlayerSystem
             _playerMovement.Jump(_player.Rb, _player.JumpForce);
         }
 
-        public void Rotate()
+        public void Rotate(float x, float z)
         {
-            _playerMovement.Rotate(_player.Rb, _player.RotationSpeed,_player.transform);
+            _playerMovement.Rotate(x,z, _player.Rb, _player.RotationSpeed,_player.transform);
         }
 
         public void Shoot()
         {
-            _playerCombat.Shoot(_player.FirePoint, _player.BulletPrefab);
+            _playerCombat.Shoot( _player.FirePoint, _player.BulletPrefab);
             
         }
     }

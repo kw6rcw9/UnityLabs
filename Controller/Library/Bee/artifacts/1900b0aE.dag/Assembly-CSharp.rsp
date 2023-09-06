@@ -353,6 +353,7 @@
 "Assets/_Source/PlayerSystem/PlayerCombat.cs"
 "Assets/_Source/PlayerSystem/PlayerInvoker.cs"
 "Assets/_Source/PlayerSystem/PlayerMovement.cs"
+"Assets/_Source/UISystem/InputStatus.cs"
 -langversion:9.0
 
 /deterministic

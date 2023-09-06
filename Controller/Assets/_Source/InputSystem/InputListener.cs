@@ -1,5 +1,6 @@
 using System;
 using PlayerSystem;
+using UnityEditor;
 using UnityEngine;
 
 namespace InputSystem
@@ -9,12 +10,14 @@ namespace InputSystem
         [SerializeField] private KeyCode jumpKey;
         [SerializeField] private Player player;
         private PlayerInvoker _playerInvoker;
-        private bool _inputEnabled = true;
-      
+
+        public bool InputEnabled { get; private set; }
+
 
         private void Awake()
         {
             _playerInvoker = new PlayerInvoker(player);
+            InputEnabled = true;
         }
 
         void Update()
@@ -32,7 +35,7 @@ namespace InputSystem
 
         private void ReadJump()
         {
-            if (Input.GetKeyDown(jumpKey) && _inputEnabled && player.IsOnGround)
+            if (Input.GetKeyDown(jumpKey) && InputEnabled && player.IsOnGround)
             {
                 _playerInvoker.Jump();
                 
@@ -41,8 +44,13 @@ namespace InputSystem
 
         private void ReadRotate()
         {
-            if(_inputEnabled)
-                _playerInvoker.Rotate();
+            if (InputEnabled)
+            { 
+                float x = Input.GetAxis("Horizontal");
+                float z = Input.GetAxis("Vertical");
+                _playerInvoker.Rotate(x, z);
+            }
+                
             
             
         }
@@ -51,7 +59,7 @@ namespace InputSystem
         {
             if (Input.GetKeyDown(KeyCode.Return))
             {
-                _inputEnabled = false;
+                InputEnabled = false;
                 Debug.Log("Input is disabled");
 
             }
@@ -61,9 +69,9 @@ namespace InputSystem
         private void OnInput()
         {
             
-            if (Input.GetMouseButtonDown(0) && !_inputEnabled)
+            if (Input.GetMouseButtonDown(0) && !InputEnabled)
             {
-                _inputEnabled = true;
+                InputEnabled = true;
                 Debug.Log("Input is enabled");
 
             }
@@ -72,8 +80,13 @@ namespace InputSystem
 
         private void ReadMove()
         {
-            if(_inputEnabled)
-                _playerInvoker.Move();
+            if (InputEnabled)
+            {
+                float x = Input.GetAxis("Horizontal");
+                float z = Input.GetAxis("Vertical");
+                _playerInvoker.Move(x,z);
+                
+            }
             
             
 
@@ -81,7 +94,7 @@ namespace InputSystem
 
         private void ReadShoot()
         {
-            if (Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetKeyDown(KeyCode.Q) && InputEnabled)
             {
                 _playerInvoker.Shoot();
             }
