@@ -11,6 +11,8 @@ namespace PlayerSystem
         [field: SerializeField] public float RotationSpeed { get; private set; }
         [field: SerializeField] public float JumpForce { get; private set; }
         [field: SerializeField] public Rigidbody Rb { get; private set; }
+        [field: SerializeField] public Transform FirePoint { get; private set; }
+        [field: SerializeField] public GameObject BulletPrefab { get; private set; }
         private bool _isOnGround = true;
         public bool IsOnGround { get => _isOnGround;}
 

@@ -24,6 +24,7 @@ namespace InputSystem
             ReadJump();
             ReadMove();
             ReadRotate();
+            ReadShoot();
         
         }
 
@@ -76,6 +77,14 @@ namespace InputSystem
             
             
 
+        }
+
+        private void ReadShoot()
+        {
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                _playerInvoker.Shoot();
+            }
         }
     }
 }

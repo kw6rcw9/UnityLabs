@@ -347,8 +347,10 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
+"Assets/_Source/AmmoSystem/Bullet.cs"
 "Assets/_Source/InputSystem/InputListener.cs"
 "Assets/_Source/PlayerSystem/Player.cs"
+"Assets/_Source/PlayerSystem/PlayerCombat.cs"
 "Assets/_Source/PlayerSystem/PlayerInvoker.cs"
 "Assets/_Source/PlayerSystem/PlayerMovement.cs"
 -langversion:9.0
