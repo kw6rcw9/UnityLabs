@@ -10,7 +10,6 @@ namespace PlayerSystem
         {
             _playerMovement = new PlayerMovement();
             _player = player;
-
         }
 
         public void Move()
@@ -21,7 +20,6 @@ namespace PlayerSystem
         public void Jump()
         {
             _playerMovement.Jump(_player.Rb, _player.JumpForce);
-            
         }
 
         public void Rotate()

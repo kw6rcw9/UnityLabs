@@ -10,7 +10,7 @@ namespace InputSystem
         [SerializeField] private Player player;
         private PlayerInvoker _playerInvoker;
         private bool _inputEnabled = true;
-        private bool _isOnGround = true;
+      
 
         private void Awake()
         {
@@ -27,19 +27,11 @@ namespace InputSystem
         
         }
 
-        private void OnTriggerEnter(Collider other)
-        {
-            _isOnGround = true;
-        }
-
-        private void OnTriggerExit(Collider other)
-        {
-            _isOnGround = false;
-        }
+       
 
         private void ReadJump()
         {
-            if (Input.GetKeyDown(jumpKey) && _inputEnabled && _isOnGround)
+            if (Input.GetKeyDown(jumpKey) && _inputEnabled && player.IsOnGround)
             {
                 _playerInvoker.Jump();
                 
