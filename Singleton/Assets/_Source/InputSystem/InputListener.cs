@@ -9,11 +9,11 @@ namespace InputSystem
         [SerializeField] private KeyCode keyCode;
         private Game _game;
 
-        
 
-        private void Awake()
+
+        public void Construct(Game game)
         {
-            _game = new Game();
+            _game = game;
         }
 
         void Update()
