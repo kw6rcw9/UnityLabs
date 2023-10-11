@@ -345,10 +345,15 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
-"Assets/_Source/AudioSingleton/SingletonComponent.cs"
 "Assets/_Source/Core/Bootstrapper.cs"
 "Assets/_Source/Core/Game.cs"
 "Assets/_Source/InputSystem/InputListener.cs"
+"Assets/_Source/ResourceSystem/Resource.cs"
+"Assets/_Source/ResourceSystem/ResourceType.cs"
+"Assets/_Source/Singletons/AudioComponent.cs"
+"Assets/_Source/Singletons/ResourceBank.cs"
+"Assets/_Source/UISystem/AddButton.cs"
+"Assets/_Source/UISystem/ResourceTypeList.cs"
 -langversion:9.0
 
 /deterministic
