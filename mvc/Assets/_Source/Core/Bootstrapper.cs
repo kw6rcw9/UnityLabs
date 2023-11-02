@@ -9,18 +9,17 @@ namespace Core
     {
         private PlayerController _playerController;
         private PlayerModel _model;
-        [SerializeField] private PlayerView playerView;
+        private PlayerView _playerView;
         [SerializeField] private GameObject player;
         private void Awake()
         {
-            Instantiate(player);
-            Debug.Log(playerView.HpText.text);
             _model = new PlayerModel();
+            GameObject instance = Instantiate(player);
+            instance.TryGetComponent(out PlayerView playerView);
             _playerController = new PlayerController(_model, playerView);
            _playerController.Bind();
-            _model.AddHp(-1);
-            _model.AddHp(4);
-            Debug.Log(playerView.HpText.text);
+           _model.AddHp(-5);
+            _model.AddHp(-10);
             _playerController.Expose();
            
         }

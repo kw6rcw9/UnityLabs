@@ -19,9 +19,12 @@ namespace PlayerSystem
         public void AddHp(int value)
         {
             Hp += value;
-            OnHealthChange?.Invoke(Hp);
-            if(Hp <= 0)
+            if (Hp <= 0)
+            {
+                Hp = 0;
                 OnDeath?.Invoke();
+            }
+            OnHealthChange?.Invoke(Hp);
             
         }
         
