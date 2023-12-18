@@ -14,9 +14,9 @@ namespace PlayerSystem
         public void UpdateHpText(int hp)
         {
             HpText.text = $"Current hp: {hp}";
-            Debug.Log(HpText.text);
+            
             TryGetComponent(out SpriteRenderer sprite);
-            Debug.Log(sprite.color);
+           
         }
 
         public void PlayerDeath()

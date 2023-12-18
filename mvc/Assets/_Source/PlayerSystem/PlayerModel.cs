@@ -8,7 +8,13 @@ namespace PlayerSystem
     {
         public event Action<int> OnHealthChange;
         public event Action OnDeath;
+
+        
         private const  int _maxHp = 10;
+
+        private const int _speed = 5;
+
+        public int Speed => _speed;
         public int Hp { get; private set; }
 
         public PlayerModel()
@@ -22,6 +28,7 @@ namespace PlayerSystem
             if (Hp <= 0)
             {
                 Hp = 0;
+                Debug.Log("Dead");
                 OnDeath?.Invoke();
             }
             OnHealthChange?.Invoke(Hp);
