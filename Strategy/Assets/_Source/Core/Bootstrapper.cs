@@ -1,18 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using WarriorSystem;
 
-public class Bootstrapper : MonoBehaviour
+namespace Core
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   public class Bootstrapper : MonoBehaviour
+   {
+      [SerializeField] private InputListener inputListener;
+      [SerializeField] private SetButtons setButtons;
+      [SerializeField] private AttackPerformer attackPerformer;
+  
+      private IContext _context;
+  
+   
+      private void Awake()
+      {
+         _context = new Context(null);
+         attackPerformer.Construct(_context);
+         setButtons.Construct(_context);
+         inputListener.Construct(attackPerformer);
+      }
+   }
 }
