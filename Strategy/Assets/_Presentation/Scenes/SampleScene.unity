@@ -123,6 +123,83 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &274666781
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 274666782}
+  - component: {fileID: 274666783}
+  m_Layer: 0
+  m_Name: EnemyPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &274666782
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274666781}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.99, y: -2.24, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &274666783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274666781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b199fb2fac3d78245b8faa8f9ce04317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 560606159252130225, guid: cef67861db652784da45caba748a2c7b, type: 3}
+  poolSize: 3
+--- !u!1 &454624933
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 454624934}
+  m_Layer: 0
+  m_Name: EnemySpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &454624934
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454624933}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.31, y: -2, z: 0.032338284}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &716197496 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2940894409848517880, guid: 808693abbfbcf7244b54eed4bd272358, type: 3}
@@ -326,7 +403,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1715711294066888097, guid: 267568c337afcbb4c98a4f1355e8ecf3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.51
+      value: -6.78
       objectReference: {fileID: 0}
     - target: {fileID: 1715711294066888097, guid: 267568c337afcbb4c98a4f1355e8ecf3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -381,6 +458,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2940894409848517880, guid: 808693abbfbcf7244b54eed4bd272358, type: 3}
+      propertyPath: spawnPoint
+      value: 
+      objectReference: {fileID: 454624933}
     - target: {fileID: 2940894409848517883, guid: 808693abbfbcf7244b54eed4bd272358, type: 3}
       propertyPath: m_Camera
       value: 
@@ -535,6 +616,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 943415706645390955, guid: 8bbc5d1b5fa65dd4a938c765d08b6586, type: 3}
+      propertyPath: enemyPool
+      value: 
+      objectReference: {fileID: 274666783}
     - target: {fileID: 943415706645390955, guid: 8bbc5d1b5fa65dd4a938c765d08b6586, type: 3}
       propertyPath: setButtons
       value: 
