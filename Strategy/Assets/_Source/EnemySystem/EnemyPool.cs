@@ -1,13 +1,17 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace EnemySystem
 {
     public class EnemyPool : MonoBehaviour
     {
-        [SerializeField] private GameObject enemyPrefab;
-        [SerializeField] private int poolSize;
-        private List<GameObject> _enemies;
+        
+      
+        
+        [SerializeField]private List<GameObject> enemies;
+        private List<GameObject> _enemiesList;
         public void Construct()
         {
             InitPool();
@@ -15,23 +19,35 @@ namespace EnemySystem
 
         private void InitPool()
         {
-            _enemies = new List<GameObject>();
-            for (int i = 0; i < poolSize; i++)
+            _enemiesList = new List<GameObject>();
+            for (int i = 0; i < enemies.Count; i++)
             {
-                GameObject enemyInstance = Instantiate(enemyPrefab, transform);
+                GameObject enemyInstance = Instantiate(enemies[i], transform);
                 ReturnToPool(enemyInstance);
             }
         }
 
-        public bool TryGetFromPool(out GameObject enemyInstance)
+        public bool TryGetFromPool(out GameObject enemyInstance, Type enemyClass)
         {
+           
             enemyInstance = null;
-            if (_enemies.Count > 0)
+            if (_enemiesList.Count > 0)
             {
-                enemyInstance = _enemies[0];
-                enemyInstance.SetActive(true);
-                _enemies.RemoveAt(0);
-                return true;
+
+                foreach (var enemy in _enemiesList)
+                {
+                    enemy.TryGetComponent(out ABaseClass enemyType);
+                    if (enemyType != null && enemyType.GetType() == enemyClass)
+                    {
+                        enemy.SetActive(true);
+                        enemyInstance = enemy;
+                         _enemiesList.Remove(enemy);
+                      
+                         return true;
+                    }
+
+                }
+                
             }
 
             return false;
@@ -40,7 +56,7 @@ namespace EnemySystem
         public void ReturnToPool(GameObject enemyInstance)
         {
             enemyInstance.SetActive(false);
-            _enemies.Add(enemyInstance);
+            _enemiesList.Add(enemyInstance);
         }
     }
 }

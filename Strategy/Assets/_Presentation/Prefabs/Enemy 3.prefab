@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8434003729524643716}
   - component: {fileID: 8511313402357106120}
   - component: {fileID: 8073839602614410915}
-  - component: {fileID: 2241413268462098433}
+  - component: {fileID: -6825875631917613345}
   m_Layer: 0
-  m_Name: Enemy 1
+  m_Name: Enemy 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -107,7 +107,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2241413268462098433
+--- !u!114 &-6825875631917613345
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,8 +116,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 560606159252130225}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cadf008655f523740aa4319d6a1722d4, type: 3}
+  m_Script: {fileID: 11500000, guid: ef0b005b60a4abc4bb69122168b11dc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Enemy>k__BackingField: {fileID: 0}
   <Animator>k__BackingField: {fileID: 8073839602614410915}

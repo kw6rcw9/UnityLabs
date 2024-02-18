@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace EnemySystem
@@ -13,31 +14,29 @@ namespace EnemySystem
             _enemyPool = enemyPool;
             _activeEnemy = null;
         }
-        public void ChangeActiveEnemy(ABaseClass newAnemy, GameObject spawnPoint)
+        public void ChangeActiveEnemy(Type newAnemy, GameObject spawnPoint)
         {
-            _currentEnemy = newAnemy;
+            
             if (_activeEnemy != null)
             {
                 _enemyPool.ReturnToPool(_activeEnemy);
             }
-            if(_enemyPool.TryGetFromPool(out GameObject enemyInstance))
+            if(_enemyPool.TryGetFromPool(out GameObject enemyInstance, newAnemy))
             {
                 enemyInstance.transform.position = spawnPoint.transform.position;
                 _activeEnemy = enemyInstance;
-                if (enemyInstance.TryGetComponent(out Enemy enemy))
-                {
-                    enemy.Init(_currentEnemy);
-                }
+               
+               
+                
+                
+                //Attack();
             }
 
             
 
         }
 
-        public void Attack()
-        {
-            _currentEnemy.TemplateAttack();
-        }
+        
 
 
     }
